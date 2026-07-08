@@ -1,0 +1,216 @@
+{
+  "chicken": {
+    "Does your animal have two legs?": true,
+    "Is your animal a mammal?": false,
+    "Is your animal native to Australia?": false,
+    "Does your animal have webbed feet?": false
+  },
+  "emu": {
+    "Does your animal have two legs?": true,
+    "Is your animal a mammal?": false,
+    "Is your animal native to Australia?": true
+  },
+  "pig": {
+    "Does your animal have two legs?": false,
+    "Is your animal a mammal?": true,
+    "Does your animal have wool?": false,
+    "Is your animal an amphibian?": false,
+    "Is your animal an insect?": false,
+    "Does your animal have a long neck?": false,
+    "Does your animal have fur?": false
+  },
+  "cow": {
+    "Does your animal have two legs?": false,
+    "Is your animal an insect?": false,
+    "Is your animal a mammal?": true,
+    "Does your animal have wool?": false,
+    "Is your animal an amphibian?": false,
+    "Does your animal have a long neck?": false,
+    "Does your animal have fur?": false,
+    "Do humans drink your animal's milk?": true
+  },
+  "sheep": {
+    "Does your animal have two legs?": false,
+    "Is your animal an insect?": false,
+    "Is your animal a mammal?": true,
+    "Is your animal an amphibian?": false,
+    "Does your animal have a long neck?": false,
+    "Does your animal have fur?": false,
+    "Does your animal have wool?": true
+  },
+  "duck": {
+    "Does your animal have two legs?": true,
+    "Is your animal native to Australia?": false,
+    "Does your animal have webbed feet?": true,
+    "Can your animal fly?": true
+  },
+  "newt": {
+    "Does your animal have two legs?": false,
+    "Does your animal have wool?": false,
+    "Do humans drink your animal's milk?": false,
+    "Is your animal an amphibian?": true
+  },
+  "butterfly": {
+    "Does your animal have two legs?": false,
+    "Does your animal have wool?": false,
+    "Do humans drink your animal's milk?": false,
+    "Is your animal an amphibian?": false,
+    "Is your animal an insect?": true,
+    "Does your animal dig holes?": false,
+    "Does your animal make a buzzing sound?": false
+  },
+  "giraffe": {
+    "Does your animal have two legs?": false,
+    "Does your animal have wool?": false,
+    "Do humans drink your animal's milk?": false,
+    "Is your animal an insect?": false,
+    "Is your animal a mammal?": true,
+    "Is your animal an amphibian?": false,
+    "Does your animal have a long neck?": true,
+    "Do humans ride your animal?": false
+  },
+  "ant": {
+    "Does your animal have two legs?": false,
+    "Does your animal have wool?": false,
+    "Do humans drink your animal's milk?": false,
+    "Is your animal an insect?": true,
+    "Is your animal an amphibian?": false,
+    "Does your animal dig holes?": true,
+    "Does your animal have more than 6 legs?": false
+  },
+  "fox": {
+    "Does your animal have two legs?": false,
+    "Is your animal an insect?": false,
+    "Does your animal have wool?": false,
+    "Do humans drink your animal's milk?": false,
+    "Is your animal an amphibian?": false,
+    "Is your animal a mammal?": true,
+    "Does your animal have fur?": true,
+    "Does your animal have a long neck?": false,
+    "Does your animal have eight legs?": false,
+    "Does your animal drain the blood of livestock?": false
+  },
+  "chupacabra": {
+    "Does your animal have two legs?": false,
+    "Is your animal an insect?": false,
+    "Does your animal have wool?": false,
+    "Do humans drink your animal's milk?": false,
+    "Is your animal an amphibian?": false,
+    "Does your animal have fur?": true,
+    "Is your animal a mammal?": true,
+    "Does your animal have a long neck?": false,
+    "Does your animal drain the blood of livestock?": true,
+    "Does your animal have a mane?": false,
+    "Does your animal eat fish?": false
+  },
+  "centipede": {
+    "Does your animal have two legs?": false,
+    "Is your animal an insect?": true,
+    "Do humans drink your animal's milk?": false,
+    "Is your animal an amphibian?": false,
+    "Does your animal have wool?": false,
+    "Does your animal have more than 6 legs?": true
+  },
+  "spider": {
+    "Does your animal have two legs?": false,
+    "Is your animal an insect?": false,
+    "Does your animal have wool?": false,
+    "Do humans drink your animal's milk?": false,
+    "Does your animal have a long neck?": false,
+    "Is your animal an amphibian?": false,
+    "Is your animal a mammal?": false,
+    "Does your animal have eight legs?": true,
+    "Does your animal have gills?": false,
+    "Is your animal a reptile?": false
+  },
+  "fish": {
+    "Does your animal have two legs?": false,
+    "Is your animal an insect?": false,
+    "Does your animal have wool?": false,
+    "Do humans drink your animal's milk?": false,
+    "Does your animal have a long neck?": false,
+    "Is your animal an amphibian?": false,
+    "Does your animal have fur?": false,
+    "Is your animal a mammal?": false,
+    "Does your animal have gills?": true
+  },
+  "human": {
+    "Does your animal have two legs?": true,
+    "Does your animal have webbed feet?": false,
+    "Is your animal a mammal?": true
+  },
+  "snake": {
+    "Does your animal have two legs?": false,
+    "Is your animal an insect?": false,
+    "Is your animal a mammal?": false,
+    "Is your animal an amphibian?": false,
+    "Does your animal have fur?": false,
+    "Does your animal have gills?": false,
+    "Is your animal a reptile?": true,
+    "Does your animal have legs?": false
+  },
+  "lizard": {
+    "Does your animal have two legs?": false,
+    "Is your animal an insect?": false,
+    "Is your animal a mammal?": false,
+    "Does your animal have gills?": false,
+    "Is your animal an amphibian?": false,
+    "Does your animal have eight legs?": false,
+    "Does your animal have legs?": true
+  },
+  "horse": {
+    "Does your animal have two legs?": false,
+    "Is your animal an insect?": false,
+    "Is your animal a mammal?": true,
+    "Does your animal have fur?": false,
+    "Does your animal have wool?": false,
+    "Is your animal an amphibian?": false,
+    "Do humans ride your animal?": true
+  },
+  "lion": {
+    "Does your animal have two legs?": false,
+    "Is your animal an insect?": false,
+    "Is your animal a mammal?": true,
+    "Does your animal have fur?": true,
+    "Does your animal have a long neck?": false,
+    "Is your animal an amphibian?": false,
+    "Does your animal have eight legs?": false,
+    "Does your animal have a mane?": true
+  },
+  "penguin": {
+    "Does your animal have two legs?": true,
+    "Does your animal have webbed feet?": true,
+    "Is your animal a mammal?": false,
+    "Can your animal fly?": false
+  },
+  "seal": {
+    "Does your animal have two legs?": false,
+    "Is your animal an insect?": false,
+    "Is your animal a mammal?": true,
+    "Does your animal have fur?": true,
+    "Is your animal an amphibian?": false,
+    "Does your animal have a long neck?": false,
+    "Does your animal have a mane?": false,
+    "Does your animal have eight legs?": false,
+    "Does your animal eat fish?": true
+  },
+  "fly": {
+    "Does your animal have two legs?": false,
+    "Is your animal an insect?": true,
+    "Is your animal an amphibian?": false,
+    "Does your animal dig holes?": false,
+    "Does your animal have more than 6 legs?": false,
+    "Does your animal make a buzzing sound?": true,
+    "Does your animal bite?": false
+  },
+  "mosquito": {
+    "Does your animal have two legs?": false,
+    "Is your animal an insect?": true,
+    "Is your animal an amphibian?": false,
+    "Does your animal dig holes?": false,
+    "Does your animal make a buzzing sound?": true,
+    "Do humans drink your animal's milk?": false,
+    "Does your animal have more than 6 legs?": false,
+    "Does your animal bite?": true
+  }
+}
