@@ -1,5 +1,7 @@
-#import math
 import json
+import argparse
+import logging
+logger = logging.getLogger(__name__)
 
 ANIMALS_FILENAME = "animals.json"
 
@@ -35,7 +37,8 @@ def get_question_usefulness(animal_questions, question):
     """
     #total = num_true + num_false + num_unsure
     # Higher is better
-    return num_true * num_false + unsure_boost
+    #return num_true * num_false + unsure_boost
+    return min(num_true, num_false) + unsure_boost
 
     #return num_true + num_false 
 
@@ -57,15 +60,27 @@ def pick_best_question(animal_questions, exclude_questions=set()):
     #print(all_questions)
     best_usefulness = 0
     best_question = ""
-    print("Usefulness:")
+    logger.debug("Question usefulness:")
+    
     for q in all_questions:
         usefulness = get_question_usefulness(animal_questions, q)
-        print(f"{q}: {usefulness}")
+        logger.debug(f"{q}: {usefulness}")
         if usefulness > best_usefulness:
             best_usefulness = usefulness
             best_question = q
 
     return best_question, best_usefulness
+
+
+def get_animal_confidence_score(animal_questions, animal, already_answered):
+    qs = animal_questions[animal]
+    score = 0
+    for q in qs:
+        if qs[q] == already_answered.get(q, None):
+            score += 1
+
+    return score / len(already_answered)
+
 
 
 def ask_question(q):
@@ -77,6 +92,7 @@ def ask_question(q):
             return False
         else:
             print("Please answer with yes or no")
+
 
 def ask_question_with_maybe(q):
     while True:
@@ -90,25 +106,6 @@ def ask_question_with_maybe(q):
         else:
             print("Please answer with yes, no, or maybe.")
 
-"""
-def get_question_true_animals(animal_questions, question):
-    true_keys = set()
-    for animal in animal_questions:
-        ans = animal_questions[animal].get(question, None)
-        if ans == True:
-            true_keys.add(animal)
-
-    return true_keys
-
-def get_question_false_animals(animal_questions, question):
-    false_keys = set()
-    for animal in animal_questions:
-        ans = animal_questions[animal].get(question, None)
-        if ans == False:
-            false_keys.add(animal)
-
-    return false_keys
-"""
 
 def get_animals_with_question_ans(animal_questions, question, desired_ans):
     keys = set()
@@ -124,7 +121,7 @@ def celebrate_win():
     print("I guessed your animal!")
 
 
-def main():
+def play_round():
     with open(ANIMALS_FILENAME, "r") as f:
         animal_questions = json.load(f)
 
@@ -132,7 +129,7 @@ def main():
     already_asked = {}
     maybe_questions = set()
 
-    while len(curr_aq) > 1:
+    while len(curr_aq) > 3:
         q, usefulness = pick_best_question(
                 curr_aq, exclude_questions=set(already_asked) | maybe_questions)
         if usefulness == 0:
@@ -149,23 +146,29 @@ def main():
             for key in anims_to_remove:
                 curr_aq.pop(key)
 
+        logger.debug("I have narrowed it down to:")
+        for animal in curr_aq.keys():
+            logger.debug(animal, get_animal_confidence_score(curr_aq, animal, already_asked))
+
     # There are no more useful questions. We have three guesses to choose an
     # animal.
-    animals_left = tuple(curr_aq.keys())
+    animals_left = list(curr_aq.keys())
+    animals_left.sort(reverse=True, key=lambda x: get_animal_confidence_score(curr_aq, x, already_asked))
     did_guess_animal = False
     players_animal = ""
-    print(animals_left)
+    logger.debug(animals_left)
     for anim in animals_left[:3]:
         ans = ask_question(f"is your animal a {anim}?")
         if ans == True:
             celebrate_win()
             did_guess_animal = True
             players_animal = anim
+            break
 
     if not did_guess_animal:
         # Animal has still not been guessed
         players_animal = input("I could not guess your animal. What is it? ")
-        comp_animal = animals_left[-1]
+        comp_animal = animals_left[0]
         new_question = input(f"Please type a question that would differentiate a {players_animal} from a {comp_animal}: ")
         new_question_ans = ask_question(f"And how would you answer this question for a {players_animal} (yes/no)? ")
 
@@ -174,17 +177,31 @@ def main():
 
     animal_questions[players_animal] = already_asked
 
-    print("Game finished. Animals left:")
-    print(curr_aq.keys())
+    print("Game finished.")
+    logger.debug("Animals left:")
+    logger.debug(animals_left)
 
     print()
-    print("New animals:")
-    print(json.dumps(animal_questions, indent=2))
+    logger.debug("New animals:")
+    logger.debug(json.dumps(animal_questions, indent=2))
 
     with open(ANIMALS_FILENAME, "w") as f:
         json.dump(animal_questions, f, indent=2)
         
 
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--debug", action="store_true")
+    args = parser.parse_args()
+    logging_level = logging.DEBUG if args.debug else logging.ERROR
+    logging.basicConfig(level=logging_level)
+
+    is_playing = True
+    while is_playing:
+        play_round()
+        ans = ask_question("Do you want to play again?")
+        if not ans:
+            is_playing = False
 
 
 if __name__ == "__main__":
